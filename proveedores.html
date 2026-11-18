@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proveedores · NEXUS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+<body data-page="proveedores">
+
+  <header class="topbar">
+    <a class="logo" href="index.html"><span class="logo__mark">N</span> NEXUS<span class="logo__dot">.</span></a>
+    <nav class="topbar__nav">
+      <a class="navlink" href="inventario.html">Inventario</a>
+      <a class="navlink" href="personal.html">Personal</a>
+      <a class="navlink is-active" href="proveedores.html">Proveedores</a>
+    </nav>
+    <div class="topbar__user">
+      <span class="chip" id="usuarioActual">sesión activa</span>
+      <button class="btn btn--ghost btn--sm" type="button" id="btnSalir">Salir</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-head">
+      <div>
+        <p class="eyebrow">Módulo 03</p>
+        <h1>Proveedores</h1>
+        <p class="muted">Socios comerciales en la tabla <span class="mono">proveedores</span>; el código se genera automáticamente en Supabase.</p>
+      </div>
+      <div class="kpi-row">
+        <div class="kpi"><span id="kpiProveedores">0</span><small>Proveedores</small></div>
+      </div>
+    </section>
+
+    <div class="grid-modulo">
+      <section class="card">
+        <h2 id="tituloFormProveedor">Nuevo proveedor</h2>
+        <p class="form-nota">El código <span class="mono">PRV-0000</span> lo asigna la base de datos al guardar.</p>
+
+        <form id="formProveedor" autocomplete="off" novalidate>
+          <input type="hidden" id="proveedorId">
+
+          <div class="campo">
+            <label for="proveedorEmpresa">Empresa</label>
+            <input type="text" id="proveedorEmpresa" placeholder="Editorial Bilingüe S. de R.L." maxlength="90" required>
+          </div>
+
+          <div class="campo--doble">
+            <div class="campo">
+              <label for="proveedorRepresentante">Representante</label>
+              <input type="text" id="proveedorRepresentante" placeholder="Marta Elena Suazo" maxlength="70" required>
+            </div>
+            <div class="campo">
+              <label for="proveedorEncargado">Encargado</label>
+              <input type="text" id="proveedorEncargado" placeholder="Jorge Castillo" maxlength="70" required>
+            </div>
+          </div>
+
+          <div class="campo">
+            <label for="proveedorTelefono">Teléfono</label>
+            <input type="tel" id="proveedorTelefono" placeholder="+504 2550-1122" maxlength="24" required>
+          </div>
+
+          <div class="campo">
+            <label for="proveedorDireccion">Dirección de la empresa</label>
+            <input type="text" id="proveedorDireccion" placeholder="Bo. El Benque, San Pedro Sula" maxlength="120" required>
+          </div>
+
+          <div class="campo">
+            <label for="proveedorEmail">Correo electrónico</label>
+            <input type="email" id="proveedorEmail" placeholder="ventas@empresa.hn" maxlength="90" required>
+          </div>
+
+          <div class="acciones-form">
+            <button class="btn btn--neon" type="submit" id="btnGuardarProveedor">Guardar proveedor</button>
+            <button class="btn btn--ghost" type="button" id="btnCancelarProveedor">Limpiar</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="card__head">
+          <h2>Proveedores registrados</h2>
+          <button class="btn btn--ghost btn--sm" type="button" id="btnRefrescarProveedor">Actualizar</button>
+        </div>
+
+        <div class="tabla-wrap">
+          <table class="tabla">
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Empresa</th>
+                <th>Representante</th>
+                <th>Encargado</th>
+                <th>Contacto</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tablaProveedores">
+              <tr class="tabla--vacia"><td colspan="6">Cargando proveedores…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div class="modal" id="modalConfirmar" hidden>
+    <div class="modal__box" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+      <h3 id="modalTitulo">Confirmar acción</h3>
+      <p class="muted" id="modalTexto">¿Deseas continuar?</p>
+      <div class="acciones-form">
+        <button class="btn btn--danger" type="button" id="modalAceptar">Eliminar</button>
+        <button class="btn btn--ghost" type="button" id="modalCancelar">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="pie">
+    <span>NEXUS · Módulo de proveedores</span>
+    <span>Tabla <span class="mono">proveedores</span> en Supabase</span>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>

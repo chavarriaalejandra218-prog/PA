@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión · NEXUS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+<body data-page="login">
+
+  <header class="topbar">
+    <a class="logo" href="index.html"><span class="logo__mark">N</span> NEXUS<span class="logo__dot">.</span></a>
+    <nav class="topbar__nav">
+      <a class="navlink" href="index.html">Inicio</a>
+    </nav>
+    <div class="topbar__user">
+      <a class="btn btn--ghost btn--sm" href="index.html">← Volver</a>
+    </div>
+  </header>
+
+  <main class="container auth">
+    <section class="card auth__card">
+      <p class="eyebrow">Acceso al sistema</p>
+      <h1>Iniciar sesión</h1>
+      <p class="form-nota">Ingresa con las credenciales registradas en Supabase para administrar el inventario.</p>
+
+      <div class="credenciales-demo" id="credencialesDemo" hidden>
+        Usuario de prueba: <strong>demo@nexus.com</strong> · Contraseña: <strong>demo1234</strong>
+      </div>
+
+      <div class="alerta-login" id="errorLogin" role="alert" hidden></div>
+
+      <form id="formLogin" autocomplete="on" novalidate>
+        <div class="campo">
+          <label for="loginCorreo">Correo electrónico</label>
+          <input type="email" id="loginCorreo" name="correo" placeholder="usuario@nexus.com" autocomplete="username" required>
+        </div>
+        <div class="campo">
+          <label for="loginClave">Contraseña</label>
+          <input type="password" id="loginClave" name="clave" placeholder="••••••••" autocomplete="current-password" required>
+        </div>
+        <div class="campo">
+          <label for="loginRecordar" style="display:flex;align-items:center;gap:.5rem;text-transform:none;letter-spacing:0;font-size:.88rem;">
+            <input type="checkbox" id="loginRecordar" style="width:auto;">
+            Recordar mi correo
+          </label>
+        </div>
+
+        <button class="btn btn--neon btn--bloque" type="submit">Entrar al panel</button>
+      </form>
+
+      <p class="auth__pie">
+        ¿Problemas para entrar? Verifica tu usuario en Supabase → Authentication → Users.
+      </p>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <span>NEXUS · Sistema de Gestión</span>
+    <span>Supabase · Vercel · GitHub</span>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>

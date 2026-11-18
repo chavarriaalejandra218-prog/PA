@@ -1,0 +1,15 @@
+# Dependencias y artefactos locales
+node_modules/
+.vercel/
+.env
+.env.*
+
+# Archivos del entorno de trabajo
+.cloud-attachments/
+.freebuff/
+
+# Sistema operativo / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS · Sistema de Gestión</title>
+  <meta name="description" content="Sistema de gestión con inventario, personal y proveedores conectado a Supabase y desplegado en Vercel.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+<body data-page="inicio">
+
+  <header class="topbar">
+    <a class="logo" href="index.html"><span class="logo__mark">N</span> NEXUS<span class="logo__dot">.</span></a>
+    <nav class="topbar__nav">
+      <a class="navlink is-active" href="index.html">Inicio</a>
+      <a class="navlink" href="inventario.html">Inventario</a>
+      <a class="navlink" href="personal.html">Personal</a>
+      <a class="navlink" href="proveedores.html">Proveedores</a>
+    </nav>
+    <div class="topbar__user">
+      <a class="btn btn--neon btn--sm" href="login.html">Iniciar sesión</a>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="hero">
+      <div>
+        <span class="tag">Traductores e Intérpretes II · Parcial II</span>
+        <h1>Gestión completa de <span class="brillo">inventario, personal y proveedores</span></h1>
+        <p>
+          Aplicación web conectada a la nube con Supabase: autenticación con redirección segura,
+          operaciones CRUD en tiempo real y una interfaz responsiva con la línea estética neón del sistema.
+        </p>
+        <div class="hero__acciones">
+          <a class="btn btn--neon" href="login.html">Entrar al sistema</a>
+          <a class="btn btn--ghost" href="inventario.html">Ver módulo de inventario</a>
+        </div>
+        <div class="stack">
+          <span class="stack__item">GitHub</span>
+          <span class="stack__item stack__item--vercel">Vercel</span>
+          <span class="stack__item stack__item--supabase">Supabase</span>
+        </div>
+      </div>
+
+      <div class="panel-terminal" aria-label="Resumen técnico del proyecto">
+        <div class="linea-cmd">nexus@parcial2:~$ estado del sistema</div>
+        <div class="dim">──────────────────────────────</div>
+        <div>· repo .......... PA (GitHub) <span class="ok">público</span></div>
+        <div>· hosting ....... Vercel <span class="ok">activo</span></div>
+        <div>· base de datos .. Supabase (PostgreSQL)</div>
+        <div>· tablas ........ productos · personal · proveedores</div>
+        <div>· auth .......... supabase.auth → inventario.html</div>
+        <div class="dim">──────────────────────────────</div>
+        <div class="linea-cmd">$ conexión establecida</div>
+      </div>
+    </section>
+
+    <section class="seccion">
+      <div class="seccion__head">
+        <p class="eyebrow">Módulos</p>
+        <h2>Tres pantallas, una sola base de datos</h2>
+        <p class="muted">Cada módulo tiene su propia tabla SQL en Supabase y su interfaz dedicada.</p>
+      </div>
+
+      <div class="modulos">
+        <a class="modulo-card" href="inventario.html">
+          <div class="modulo-card__icono" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 8V6a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 6v12a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 18V8"/>
+              <path d="m3.3 7 8.7 5 8.7-5M12 22V12"/>
+            </svg>
+          </div>
+          <h3>Inventario</h3>
+          <p>Productos con código, categoría, precio y stock. CRUD completo sobre la tabla <em>productos</em>.</p>
+        </a>
+
+        <a class="modulo-card" href="personal.html">
+          <div class="modulo-card__icono" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>Personal</h3>
+          <p>Identidad, nombres, género, teléfono y dirección de cada colaborador en la tabla <em>personal</em>.</p>
+        </a>
+
+        <a class="modulo-card" href="proveedores.html">
+          <div class="modulo-card__icono" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 21h18M5 21V7l7-4 7 4v14"/>
+              <path d="M9 9h.01M15 9h.01M9 13h.01M15 13h.01M9 17h6"/>
+            </svg>
+          </div>
+          <h3>Proveedores</h3>
+          <p>Código autogenerado, empresa, representante, encargado, teléfono, dirección y correo.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="seccion">
+      <div class="seccion__head">
+        <p class="eyebrow">Cómo funciona</p>
+        <h2>Del login al dato en la nube</h2>
+      </div>
+      <div class="modulos">
+        <article class="card">
+          <h3>1 · Acceso validado</h3>
+          <p class="muted">El formulario intercepta el envío, valida las credenciales con Supabase Auth y muestra alertas visuales si algo falla.</p>
+        </article>
+        <article class="card">
+          <h3>2 · Redirección segura</h3>
+          <p class="muted">Al autenticarse, el sistema pasa de <span class="mono">login.html</span> a <span class="mono">inventario.html</span> y bloquea el acceso directo a los módulos sin sesión.</p>
+        </article>
+        <article class="card">
+          <h3>3 · CRUD en la nube</h3>
+          <p class="muted">Insertar, consultar, editar y eliminar escriben directamente en PostgreSQL a través de la API de Supabase.</p>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <span>NEXUS · Sistema de Gestión — Evaluación de Traductores e Intérpretes II</span>
+    <span>Ing. Edgar Josué Irías Castellanos · Parcial II</span>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
